@@ -77,6 +77,7 @@ section.alt{background:#f7f9fd}
 .legend .l-hole::before{left:0}.legend .l-hole::after{right:0}
 .legend .l-hole{background:linear-gradient(var(--navy),var(--navy)) center/60% 2px no-repeat}
 .ail{position:absolute;transform:translate(-50%,-50%);width:28px;height:28px;border-radius:50%;background:var(--magenta);color:#fff;font-weight:800;font-size:.9rem;display:grid;place-items:center;box-shadow:0 0 0 3px #fff}
+.ail-c{background:#fff;color:var(--navy);border:2px solid var(--navy)}
 .ail-inline{position:static;transform:none;width:22px;height:22px;font-size:.75rem;flex:0 0 22px;margin:0 6px}
 .dl{display:grid;gap:14px}
 .dl a{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;text-decoration:none;color:var(--navy);background:#fff;border:2px solid var(--navy);border-radius:var(--r);padding:16px 18px;transition:.15s}
@@ -128,6 +129,7 @@ section.alt{background:#f7f9fd}
 .media figcaption{font-size:.82rem;color:var(--muted);margin-top:6px}
 .illu{background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px;cursor:zoom-in}
 .media .wide{grid-column:1/-1}
+.media .wide .illu{max-height:640px;width:auto;margin:0 auto}
 .clip{position:relative;border-radius:12px;overflow:hidden;background:var(--navy);aspect-ratio:9/16;max-height:440px}
 .clip video{width:100%;height:100%;object-fit:cover}
 .clip .tag{position:absolute;left:8px;top:8px;background:var(--magenta);color:#fff;font-size:.72rem;font-weight:800;padding:3px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:.05em}
@@ -180,8 +182,8 @@ dialog button{position:fixed;top:14px;right:18px;background:var(--magenta);color
   <g id="i-bache" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h28l8 8v24H14L6 32z"/><circle cx="11" cy="13" r="2"/><path d="M14 40v-8H6"/></g>
   <g id="i-ciseaux" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="35" r="5"/><circle cx="23" cy="39" r="5"/><path d="M14 31 40 8M20 35 36 12"/></g>
   <g id="i-cutter" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M8 38 30 16l6 6-22 22z"/><path d="M30 16l6-8 6 6-6 8"/><path d="M14 34l4 4"/></g>
-  <g id="i-poincon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12c8 0 14 6 20 14l10 4M8 12c2 8 8 14 16 18"/><circle cx="36" cy="34" r="4"/><path d="M24 30l10 12"/></g>
-  <g id="i-ficelle" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="18" cy="18" rx="9" ry="7"/><ellipse cx="30" cy="30" rx="9" ry="7"/><path d="M12 30c-4 6 2 12 8 8M36 18c4-6-2-12-8-8"/></g>
+  <g id="i-poincon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g transform="rotate(-38 24 24)"><path d="M25 19.5h15c3.5 0 5.5 2 5.5 4.5s-2 4.5-5.5 4.5H25z"/><path d="M30 19.5v9M35 19.5v9"/><path d="M21 20.5h4v7h-4z"/><path d="M8 22.8h13M8 25.2h13"/><path d="M3 21.5l5 1.3v2.4l-5 1.3z"/></g></g>
+  <g id="i-ficelle" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="20" cy="22" r="13"/><path d="M9 15c8 2 16 9 19 18"/><path d="M8 22c8 1 14 6 16 12"/><path d="M14 10c7 3 13 10 17 19"/><path d="M22 9c5 4 9 10 11 17"/><path d="M31 30c4 4 7 6 13 6"/></g>
   <g id="i-stylo" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M10 38l4-10 20-20 6 6-20 20z"/><path d="M14 28l6 6M30 12l6 6"/></g>
   <g id="i-regle" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 32 32 4l12 12-28 28z"/><path d="M12 24l4 4M17 19l3 3M22 14l4 4M27 9l3 3"/></g>
   <g id="i-tapis" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="9" width="38" height="30" rx="2"/><path d="M5 19h38M5 29h38M15 9v30M25 9v30M35 9v30" stroke-width="1"/></g>
@@ -225,11 +227,12 @@ dialog button{position:fixed;top:14px;right:18px;background:var(--magenta);color
   <div class="patron">
    <figure class="patron-svg" style="margin:0;position:relative">
     <img src="img/patron-apercu.svg" alt="Aperçu du patron : silhouette en croix avec contour de découpe et lignes de pliage." width="842" height="1191" loading="lazy">
-    <span class="ail" style="left:61%;top:21%">1</span><span class="ail" style="left:75%;top:32%">2</span><span class="ail" style="left:4%;top:44%">3</span><span class="ail" style="left:96%;top:44%">4</span>
+    <span class="ail" style="left:61%;top:21%">1</span><span class="ail ail-c" style="left:75%;top:32%">C</span><span class="ail" style="left:4%;top:44%">2</span><span class="ail" style="left:96%;top:44%">3</span>
     <ul class="legend">
      <li><i class="l-cut"></i>Ligne de découpe (contour)</li>
      <li><i class="l-fold"></i>Ligne de pliage</li>
-     <li><span class="ail ail-inline">1</span>Les 4 ailettes, dans l'ordre où on les verrouille</li>
+     <li><span class="ail ail-inline">1</span>Les 3 ailettes, dans l'ordre où on les verrouille</li>
+     <li><span class="ail ail-inline ail-c">C</span>Languette de maintien de carte (facultative)</li>
     </ul>
    </figure>
    <div>
@@ -266,7 +269,7 @@ dialog button{position:fixed;top:14px;right:18px;background:var(--magenta);color
 </section>
 
 <div class="progress" aria-live="polite">
- <div class="wrap"><span id="count">0 / 11 étapes</span><div class="bar" aria-hidden="true"><span id="bar"></span></div><button class="reset" id="reset" type="button">Recommencer</button></div>
+ <div class="wrap"><span id="count">0 / 14 étapes</span><div class="bar" aria-hidden="true"><span id="bar"></span></div><button class="reset" id="reset" type="button">Recommencer</button></div>
 </div>
 
 <section id="etapes" aria-labelledby="t-etapes">
@@ -318,137 +321,134 @@ dialog button{position:fixed;top:14px;right:18px;background:var(--magenta);color
     <div>
      <div class="step-head"><span class="num">4</span><h3>Plier la poche à monnaie</h3></div>
      <p>On commence par la pointe du patron, côté blanc vers toi. Les zones sont nommées A, B, C et D, de la pointe vers le centre.</p>
-     <ol>
-      <li>Marque les plis le long des pointillés.</li>
-      <li>Replie la pointe A vers l'intérieur.</li>
-      <li>Rabats B par-dessus, puis le tout sous C.</li>
-      <li>Finis en accordéon sous D : la poche à monnaie est formée.</li>
-     </ol>
-     <p class="tip">Les vues en coupe 1 à 4 (dans le cadre vert de l'illustration) montrent dans quel sens va chaque pli. Garde-les sous les yeux.</p>
+     <ol><li>Marque les plis le long des pointillés.</li><li>Replie la pointe A vers l'intérieur.</li><li>Rabats B par-dessus, puis le tout sous C.</li><li>Finis en accordéon sous D : la poche à monnaie est formée.</li></ol>
+     <p class="tip">Les vues en coupe 1 à 4 (dans le cadre vert de l'illustration) montrent dans quel sens va chaque pli.</p>
      <div class="step-actions"><label class="done"><input type="checkbox">C'est fait</label><button class="jump" data-t="100">Voir dans la vidéo (1:40)</button></div>
     </div>
     <div class="media">
-     <figure class="wide"><img class="illu" src="img/illu-poche-1.jpg" alt="Illustration en 4 temps du pliage de la pointe A, B, C sous D, avec vues en coupe." loading="lazy" width="900" height="1377"><figcaption>Pliage A → B → C → D</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/poche-1.mp4" poster="clips/poche-1.jpg" muted loop playsinline preload="none" aria-label="Extrait : replier la pointe"></video></div><figcaption>Replier la pointe</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/poche-rabat.mp4" poster="clips/poche-rabat.jpg" muted loop playsinline preload="none" aria-label="Extrait : rabattre en accordéon"></video></div><figcaption>Rabattre en accordéon</figcaption></figure>
+     <figure class="wide"><img class="illu" src="img/illu-poche-1.jpg" alt="Illustration en 4 temps du pliage de la pointe A, B, C sous D, avec vues en coupe." loading="lazy" width="900" height="1377"><figcaption>Pliage A → B → C → D</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/poche-1.mp4" poster="clips/poche-1.jpg" muted loop playsinline preload="none" aria-label="Extrait : Replier la pointe"></video></div><figcaption>Replier la pointe</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/poche-rabat.mp4" poster="clips/poche-rabat.jpg" muted loop playsinline preload="none" aria-label="Extrait : Rabattre en accordéon"></video></div><figcaption>Rabattre en accordéon</figcaption></figure>
     </div>
    </li>
-
    <li class="step" id="e5">
     <div>
      <div class="step-head"><span class="num">5</span><h3>Le soufflet et l'ailette ①</h3></div>
-     <p>Sur le côté de la poche, la partie en éventail forme le soufflet. Elle se termine par l'<strong>ailette ①</strong>.</p>
+     <p>Sur le côté de la poche, la partie en éventail forme le soufflet. Elle se termine par l'<strong>ailette ①</strong>, la petite languette arrondie.</p>
      <ol>
-      <li>Plie le soufflet en éventail le long de ses rayons C, B, A (coupes 1 à 3 de l'illustration), puis rabats-le contre la poche. Une pince à dessin aide à le tenir en place.</li>
+      <li><strong>Plie le soufflet en trois temps</strong> (coupes 1 à 3 de l'illustration) : d'abord le pli en diagonale A, puis le pli du milieu B, enfin le pli C qui forme le triangle. Une pince à dessin aide à tenir le tout.</li>
       <li>Rabats l'ailette ① sur la poche, bien à plat. Au stylo, marque deux points à ses bords, là où elle doit traverser.</li>
-      <li>Déplie, relie les deux points à la règle, puis fends au cutter.</li>
-      <li>Pince l'ailette, passe-la dans la fente et déplie-la de l'autre côté : le soufflet est verrouillé.</li>
+      <li>Déplie, relie les deux points à la règle, puis fends ce trait au cutter.</li>
+      <li>Replie, pince l'ailette pour la rendre étroite, passe-la dans la fente, puis <strong>redéploie ses côtés</strong> de l'autre côté : elle ne peut plus ressortir.</li>
      </ol>
-     <p class="tip">Fais une fente plutôt trop courte que trop longue : tu pourras toujours l'agrandir, alors qu'une fente trop longue ne tient plus. C'est tout l'intérêt de marquer sur la pièce pliée : la fente tombe juste, quelle que soit l'épaisseur de la bâche.</p>
+     <p class="warn">Pour couper, déplie la pièce ou glisse un carton sous la zone à fendre : on ne coupe jamais qu'une seule épaisseur de bâche.</p>
+     <p class="tip">Fais une fente plutôt trop courte que trop longue : tu pourras toujours l'agrandir, alors qu'une fente trop longue ne tient plus. Marquer sur la pièce pliée permet à la fente de tomber juste, quelle que soit l'épaisseur de la bâche.</p>
      <div class="step-actions"><label class="done"><input type="checkbox">C'est fait</label><button class="jump" data-t="124">Voir dans la vidéo (2:04)</button></div>
     </div>
     <div class="media">
-     <figure class="wide"><img class="illu" src="img/illu-poche-2.jpg" alt="Illustration : soufflet plié en éventail A, B, C, fente entre deux points au cutter, ailette pincée et passée dans la fente." loading="lazy" width="900" height="1439"><figcaption>Soufflet en éventail, fente et ailette ① verrouillée (encadré du bas)</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/soufflet-eventail.mp4" poster="clips/soufflet-eventail.jpg" muted loop playsinline preload="none" aria-label="Extrait : plier le soufflet en éventail"></video></div><figcaption>Plier le soufflet</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/fente-marquer.mp4" poster="clips/fente-marquer.jpg" muted loop playsinline preload="none" aria-label="Extrait : marquer deux points au stylo"></video></div><figcaption>Marquer les deux points</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/fente-couper.mp4" poster="clips/fente-couper.jpg" muted loop playsinline preload="none" aria-label="Extrait : fendre et passer l'ailette"></video></div><figcaption>Fendre et passer l'ailette</figcaption></figure>
+     <figure class="wide"><img class="illu" src="img/illu-poche-2.jpg" alt="Illustration : soufflet plié en éventail A, B, C, fente entre deux points, ailette pincée et passée dans la fente." loading="lazy" width="900" height="1439"><figcaption>Soufflet en éventail, fente et ailette ① verrouillée (encadré du bas)</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/soufflet-eventail.mp4" poster="clips/soufflet-eventail.jpg" muted loop playsinline preload="none" aria-label="Extrait : 1. Le pli en diagonale"></video></div><figcaption>1. Le pli en diagonale</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/soufflet-milieu.mp4" poster="clips/soufflet-milieu.jpg" muted loop playsinline preload="none" aria-label="Extrait : 2. Le pli du milieu"></video></div><figcaption>2. Le pli du milieu</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/soufflet-triangle.mp4" poster="clips/soufflet-triangle.jpg" muted loop playsinline preload="none" aria-label="Extrait : 3. Le triangle"></video></div><figcaption>3. Le triangle</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/fente-marquer.mp4" poster="clips/fente-marquer.jpg" muted loop playsinline preload="none" aria-label="Extrait : Marquer les deux points"></video></div><figcaption>Marquer les deux points</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/fente-regle.mp4" poster="clips/fente-regle.jpg" muted loop playsinline preload="none" aria-label="Extrait : Relier à la règle"></video></div><figcaption>Relier à la règle</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/ailette1-passer.mp4" poster="clips/ailette1-passer.jpg" muted loop playsinline preload="none" aria-label="Extrait : Pincer et passer l'ailette"></video></div><figcaption>Pincer et passer l'ailette</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/ailette1-deplier.mp4" poster="clips/ailette1-deplier.jpg" muted loop playsinline preload="none" aria-label="Extrait : Redéployer ses côtés"></video></div><figcaption>Redéployer ses côtés</figcaption></figure>
     </div>
    </li>
-
    <li class="step" id="e6">
     <div>
-     <div class="step-head"><span class="num">6</span><h3>La languette centrale, ailette ②</h3></div>
-     <p>L'<strong>ailette ②</strong> est la languette arrondie qui dépasse à côté de la poche, au-dessus de l'encoche centrale. Elle referme la poche de l'autre côté.</p>
-     <ol>
-      <li>Retourne la pièce, côté imprimé vers toi.</li>
-      <li>Rabats l'ailette ② par-dessus le bord de la poche et marque au stylo deux points à ses bords.</li>
-      <li>Relie-les à la règle, fends, puis passe l'ailette dans la fente et déplie-la côté blanc.</li>
-     </ol>
+     <div class="step-head"><span class="num">6</span><h3>Rabattre le soufflet à l'intérieur</h3></div>
+     <p>Une fois l'ailette ① verrouillée, rabats tout le soufflet vers l'intérieur de la poche, comme le montrent les trois vues de l'illustration. Aplatis bien : la poche doit rester plate.</p>
+     <div class="step-actions"><label class="done"><input type="checkbox">C'est fait</label><button class="jump" data-t="196">Voir dans la vidéo (3:16)</button></div>
+    </div>
+    <div class="media">
+     <figure class="wide"><img class="illu" src="img/illu-soufflet-interieur.jpg" alt="Trois vues : le soufflet verrouillé est rabattu à l'intérieur de la poche." loading="lazy" width="700" height="1254"><figcaption>Le soufflet rentre dans la poche</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/soufflet.mp4" poster="clips/soufflet.jpg" muted loop playsinline preload="none" aria-label="Extrait : Rabattre le soufflet"></video></div><figcaption>Rabattre le soufflet</figcaption></figure>
+    </div>
+   </li>
+   <li class="step" id="e7">
+    <div>
+     <div class="step-head"><span class="num">7</span><h3>Couper la fermeture de la poche</h3></div>
+     <p>Pour que la poche à pièces puisse se refermer, il faut libérer son rabat par une coupe.</p>
+     <ol><li>Retourne la pièce, côté imprimé vers toi.</li><li>Trace à la règle la ligne de coupe le long du bord de la poche, comme dans l'extrait.</li><li>Coupe au cutter, en suivant la règle.</li></ol>
+     <p class="warn">Pour couper, déplie la pièce ou glisse un carton sous la zone à fendre : on ne coupe jamais qu'une seule épaisseur de bâche.</p>
      <div class="step-actions"><label class="done"><input type="checkbox">C'est fait</label><button class="jump" data-t="208">Voir dans la vidéo (3:28)</button></div>
     </div>
     <div class="media">
-     <figure class="wide"><img class="illu" src="img/illu-poche-3.jpg" alt="Illustration en trois vues : la languette centrale rabattue sur la poche, deux points marqués, puis passée dans la fente." loading="lazy" width="900" height="949"><figcaption>Ailette ② rabattue, marquée, passée dans sa fente</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/ailette2-marquer.mp4" poster="clips/ailette2-marquer.jpg" muted loop playsinline preload="none" aria-label="Extrait : marquer la fente de la languette centrale"></video></div><figcaption>Marquer la fente</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/ailette2-passer.mp4" poster="clips/ailette2-passer.jpg" muted loop playsinline preload="none" aria-label="Extrait : passer la languette centrale"></video></div><figcaption>Passer l'ailette ②</figcaption></figure>
+     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/fermeture-tracer.mp4" poster="clips/fermeture-tracer.jpg" muted loop playsinline preload="none" aria-label="Extrait : Tracer la ligne de coupe"></video></div><figcaption>Tracer la ligne de coupe</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/fermeture-couper.mp4" poster="clips/fermeture-couper.jpg" muted loop playsinline preload="none" aria-label="Extrait : Couper à la règle"></video></div><figcaption>Couper à la règle</figcaption></figure>
     </div>
    </li>
-
-   <li class="step" id="e7">
+   <li class="step" id="e8">
     <div>
-     <div class="step-head"><span class="num">7</span><h3>Percer et nouer la ficelle élastique</h3></div>
+     <div class="step-head"><span class="num">8</span><h3>Rabattre la fermeture de la poche</h3></div>
+     <p>Rabats le rabat ainsi libéré sur la poche à pièces, puis marque bien le pli : la poche est fermée.</p>
+     <div class="step-actions"><label class="done"><input type="checkbox">C'est fait</label><button class="jump" data-t="236">Voir dans la vidéo (3:56)</button></div>
+    </div>
+    <div class="media">
+     <figure class="wide"><img class="illu" src="img/illu-fermeture.jpg" alt="Vues de la poche refermée par son rabat." loading="lazy" width="700" height="317"><figcaption>La poche refermée</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/fermeture-rabattre.mp4" poster="clips/fermeture-rabattre.jpg" muted loop playsinline preload="none" aria-label="Extrait : Rabattre la fermeture"></video></div><figcaption>Rabattre la fermeture</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/fermeture-plier.mp4" poster="clips/fermeture-plier.jpg" muted loop playsinline preload="none" aria-label="Extrait : Marquer le pli"></video></div><figcaption>Marquer le pli</figcaption></figure>
+    </div>
+   </li>
+   <li class="step" id="e9">
+    <div>
+     <div class="step-head"><span class="num">9</span><h3>Percer et nouer la ficelle élastique</h3></div>
      <p>Tant que la pièce est encore ouverte, pose la fermeture. Les deux trous se placent sur le panneau gauche, côté blanc, l'un au-dessus de l'autre entre les deux lignes de pli horizontales (voir l'illustration). Marque-les au stylo.</p>
-     <ul>
-      <li><strong>Avec un poinçon</strong> : choisis la tête du diamètre de la ficelle. C'est l'outil idéal, net et rapide.</li>
-      <li><strong>Sans poinçon</strong> : pince la bâche à l'endroit marqué et entaille-la d'un petit coup de ciseaux. Ça marche très bien aussi.</li>
-     </ul>
+     <ul><li><strong>Avec un poinçon</strong> : choisis la tête du diamètre de la ficelle. C'est l'outil idéal, net et rapide.</li><li><strong>Sans poinçon</strong> : pince la bâche à l'endroit marqué et entaille-la d'un petit coup de ciseaux. Ça marche très bien aussi.</li></ul>
      <p>Passe la ficelle dans les deux trous, noue les extrémités <strong>côté blanc</strong> d'un double nœud, puis coupe ce qui dépasse.</p>
-     <p class="tip">Dans la vidéo, cette étape est filmée à part, à 6:00, sur une pièce déjà préparée.</p>
      <div class="step-actions"><label class="done"><input type="checkbox">C'est fait</label><button class="jump" data-t="360">Voir dans la vidéo (6:00)</button></div>
     </div>
     <div class="media">
-     <figure class="wide"><img class="illu" src="img/illu-elastique.jpg" alt="Poinçon, ficelle élastique violette, et la pièce avant et après passage de la ficelle dans deux trous." loading="lazy" width="900" height="459"><figcaption>Deux trous, une ficelle, un nœud côté blanc</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/trou-poincon.mp4" poster="clips/trou-poincon.jpg" muted loop playsinline preload="none" aria-label="Extrait : percer au poinçon"></video></div><figcaption>Percer au poinçon</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/elastique.mp4" poster="clips/elastique.jpg" muted loop playsinline preload="none" aria-label="Extrait : passer la ficelle élastique"></video></div><figcaption>Passer la ficelle</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/trou-ciseaux.mp4" poster="clips/trou-ciseaux.jpg" muted loop playsinline preload="none" aria-label="Extrait : couper aux ciseaux"></video></div><figcaption>Couper aux ciseaux</figcaption></figure>
+     <figure class="wide"><img class="illu" src="img/illu-elastique.jpg" alt="Poinçon, ficelle élastique violette, et la pièce avant et après passage de la ficelle dans deux trous." loading="lazy" width="900" height="459"><figcaption>Deux trous, une ficelle, un nœud côté blanc</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/trou-poincon.mp4" poster="clips/trou-poincon.jpg" muted loop playsinline preload="none" aria-label="Extrait : Percer au poinçon"></video></div><figcaption>Percer au poinçon</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/elastique.mp4" poster="clips/elastique.jpg" muted loop playsinline preload="none" aria-label="Extrait : Passer la ficelle"></video></div><figcaption>Passer la ficelle</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/trou-ciseaux.mp4" poster="clips/trou-ciseaux.jpg" muted loop playsinline preload="none" aria-label="Extrait : Couper ce qui dépasse"></video></div><figcaption>Couper ce qui dépasse</figcaption></figure>
     </div>
    </li>
-
-   <li class="step" id="e8">
+   <li class="step" id="e10">
     <div>
-     <div class="step-head"><span class="num">8</span><h3>Le grand pli</h3></div>
-     <p>Côté blanc vers toi, rabats toute la partie du bas vers le haut, le long de la ligne de pli horizontale (les grandes flèches de l'illustration). La poche se retrouve à l'intérieur. Marque bien ce pli à la règle.</p>
-     <div class="step-actions"><label class="done"><input type="checkbox">C'est fait</label><button class="jump" data-t="266">Voir dans la vidéo (4:26)</button></div>
+     <div class="step-head"><span class="num">10</span><h3>Rabattre puis retourner</h3></div>
+     <p>Côté blanc vers toi, rabats toute la partie du bas vers le haut, le long de la ligne de pli horizontale (les grandes flèches de l'illustration). Marque bien le pli, puis retourne la pièce de 180°.</p>
+     <div class="step-actions"><label class="done"><input type="checkbox">C'est fait</label><button class="jump" data-t="444">Voir dans la vidéo (7:24)</button></div>
     </div>
     <div class="media">
-     <figure class="wide"><img class="illu" src="img/illu-grand-pli.jpg" alt="Illustration : la partie basse rabattue vers le haut le long du pli horizontal, puis retournement à 180°." loading="lazy" width="700" height="619"><figcaption>Rabattre le bas vers le haut</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/corps-plier.mp4" poster="clips/corps-plier.jpg" muted loop playsinline preload="none" aria-label="Extrait : le grand pli"></video></div><figcaption>Le grand pli</figcaption></figure>
+     <figure class="wide"><img class="illu" src="img/illu-grand-pli.jpg" alt="Illustration : la partie basse rabattue vers le haut, puis retournement à 180°." loading="lazy" width="700" height="619"><figcaption>Rabattre le bas vers le haut, puis retourner</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/rabattre-bas.mp4" poster="clips/rabattre-bas.jpg" muted loop playsinline preload="none" aria-label="Extrait : Rabattre le bas vers le haut"></video></div><figcaption>Rabattre le bas vers le haut</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/retourner.mp4" poster="clips/retourner.jpg" muted loop playsinline preload="none" aria-label="Extrait : Retourner"></video></div><figcaption>Retourner</figcaption></figure>
     </div>
    </li>
-
-   <li class="step" id="e9">
+   <li class="step" id="e11">
     <div>
-     <div class="step-head"><span class="num">9</span><h3>Les ailettes latérales ③ et ④</h3></div>
-     <p>Il reste les deux <strong>ailettes ③ et ④</strong>, aux extrémités gauche et droite, avec leur base en triangle.</p>
+     <div class="step-head"><span class="num">11</span><h3>Les ailettes latérales ② et ③</h3></div>
+     <p>Il reste les deux <strong>ailettes ② et ③</strong>, aux extrémités gauche et droite, avec leur base en triangle. Même principe que pour l'ailette ① :</p>
      <ol>
-      <li>Retourne la pièce de 180°.</li>
-      <li>Replie l'ailette ③ vers l'intérieur, en alignant le pli sur le bord du porte-monnaie (une règle aide à le garder bien droit).</li>
-      <li>Marque deux points à ses bords, fends entre les deux, et passe l'ailette dans la fente.</li>
-      <li>Fais exactement la même chose avec l'ailette ④, de l'autre côté.</li>
-      <li>Retourne de nouveau de 180° : l'intérieur du porte-monnaie apparaît, avec la poche à monnaie à droite.</li>
+      <li>Replie l'ailette vers l'intérieur, en alignant son pli sur le bord du porte-monnaie (la règle aide à le garder droit).</li>
+      <li>Marque deux points à ses bords, puis fends entre les deux.</li>
+      <li>Pince l'ailette, rentre-la dans la fente et redéploie ses côtés à l'intérieur du porte-monnaie.</li>
+      <li>Fais la même chose de l'autre côté, puis retourne de nouveau de 180°.</li>
      </ol>
+     <p class="warn">Pour couper, déplie la pièce ou glisse un carton sous la zone à fendre : on ne coupe jamais qu'une seule épaisseur de bâche.</p>
      <div class="step-actions"><label class="done"><input type="checkbox">C'est fait</label><button class="jump" data-t="292">Voir dans la vidéo (4:52)</button></div>
     </div>
     <div class="media">
-     <figure class="wide"><img class="illu" src="img/illu-ailettes-laterales.jpg" alt="Illustration : ailettes latérales repliées vers l'intérieur, fentes marquées en rouge, ailettes passées, puis retournement à 180°." loading="lazy" width="700" height="1020"><figcaption>Replier, marquer, fendre, passer, retourner</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/ailettes-laterales-marquer.mp4" poster="clips/ailettes-laterales-marquer.jpg" muted loop playsinline preload="none" aria-label="Extrait : marquer la fente d'une ailette latérale"></video></div><figcaption>Marquer l'ailette ③</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/ailettes-laterales-regle.mp4" poster="clips/ailettes-laterales-regle.jpg" muted loop playsinline preload="none" aria-label="Extrait : aligner l'ailette latérale à la règle"></video></div><figcaption>Aligner l'ailette ④ à la règle</figcaption></figure>
+     <figure class="wide"><img class="illu" src="img/illu-ailettes-laterales.jpg" alt="Illustration : ailettes latérales repliées vers l'intérieur, fentes marquées en rouge, ailettes passées, puis retournement à 180°." loading="lazy" width="700" height="1020"><figcaption>Replier, marquer, fendre, rentrer, retourner</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/ailettes-laterales-marquer.mp4" poster="clips/ailettes-laterales-marquer.jpg" muted loop playsinline preload="none" aria-label="Extrait : Marquer la fente"></video></div><figcaption>Marquer la fente</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/ailettes-laterales-regle.mp4" poster="clips/ailettes-laterales-regle.jpg" muted loop playsinline preload="none" aria-label="Extrait : Aligner à la règle"></video></div><figcaption>Aligner à la règle</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/ailette-laterale-passer.mp4" poster="clips/ailette-laterale-passer.jpg" muted loop playsinline preload="none" aria-label="Extrait : Rentrer l'ailette"></video></div><figcaption>Rentrer l'ailette</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/ailettes-rentrer.mp4" poster="clips/ailettes-rentrer.jpg" muted loop playsinline preload="none" aria-label="Extrait : Les deux ailettes en place"></video></div><figcaption>Les deux ailettes en place</figcaption></figure>
     </div>
    </li>
-
-   <li class="step" id="e10">
+   <li class="step" id="e12">
     <div>
-     <div class="step-head"><span class="num">10</span><h3>Fentes pour cartes</h3></div>
-     <p>Pose une carte sur le panneau gauche pour repérer sa place, puis trace à la règle les fentes où elle viendra se glisser. Fends au cutter, sur le tapis de coupe.</p>
-     <p class="tip">Prévois une fente un peu plus large que la carte : la bâche ne se détend pas comme le cuir.</p>
+     <div class="step-head"><span class="num">12</span><h3>Le dernier rabat</h3></div>
+     <p>Rabats la partie du haut vers le bas, le long du pli horizontal (grandes flèches de l'illustration). Ce rabat <strong>cache la ficelle</strong> d'un côté et vient se glisser <strong>derrière la poche à pièces</strong> de l'autre.</p>
+     <div class="step-actions"><label class="done"><input type="checkbox">C'est fait</label><button class="jump" data-t="464">Voir dans la vidéo (7:44)</button></div>
+    </div>
+    <div class="media">
+     <figure class="wide"><img class="illu" src="img/illu-rabat-final.jpg" alt="Illustration : la partie haute rabattue vers le bas, cachant la ficelle et passant derrière la poche." loading="lazy" width="700" height="700"><figcaption>Le rabat cache la ficelle et passe derrière la poche</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/dernier-rabat.mp4" poster="clips/dernier-rabat.jpg" muted loop playsinline preload="none" aria-label="Extrait : Rabattre le haut"></video></div><figcaption>Rabattre le haut</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/dernier-rabat-2.mp4" poster="clips/dernier-rabat-2.jpg" muted loop playsinline preload="none" aria-label="Extrait : Glisser derrière la poche"></video></div><figcaption>Glisser derrière la poche</figcaption></figure>
+    </div>
+   </li>
+   <li class="step" id="e13">
+    <div>
+     <div class="step-head"><span class="num">13</span><h3>Les fentes pour cartes</h3></div>
+     <p>Pose une carte sur le panneau gauche pour repérer sa place, puis trace à la règle les fentes où elle viendra se glisser.</p>
+     <p>La petite <strong>languette arrondie</strong> au-dessus de l'encoche (repère <span class="ail ail-inline ail-c">C</span> sur le patron) sert à bien maintenir une carte en place dans l'une de ces fentes. Elle est <strong>facultative</strong> : si tu n'en veux pas, coupe-la simplement aux ciseaux, au ras du bord.</p>
+     <p class="warn">Pour couper, déplie la pièce ou glisse un carton sous la zone à fendre : on ne coupe jamais qu'une seule épaisseur de bâche.</p>
      <div class="step-actions"><label class="done"><input type="checkbox">C'est fait</label><button class="jump" data-t="480">Voir dans la vidéo (8:00)</button></div>
     </div>
     <div class="media">
-     <figure class="wide"><img class="illu" src="img/illu-pliage-fin.jpg" alt="Porte-monnaie déplié montrant les fentes pour cartes, puis plié." loading="lazy" width="900" height="903"><figcaption>Fentes pour cartes et pli central</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/fentes-cartes.mp4" poster="clips/fentes-cartes.jpg" muted loop playsinline preload="none" aria-label="Extrait : tracer les fentes pour cartes"></video></div><figcaption>Tracer les fentes</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/finitions.mp4" poster="clips/finitions.jpg" muted loop playsinline preload="none" aria-label="Extrait : fendre à la règle et au cutter"></video></div><figcaption>Fendre à la règle</figcaption></figure>
+     <figure class="wide"><img class="illu" src="img/illu-fentes-cartes.jpg" alt="Illustration : fente pour carte tracée sur le panneau gauche, puis porte-monnaie avec deux cartes glissées." loading="lazy" width="700" height="631"><figcaption>Fentes pour cartes</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/fentes-cartes.mp4" poster="clips/fentes-cartes.jpg" muted loop playsinline preload="none" aria-label="Extrait : Tracer les fentes"></video></div><figcaption>Tracer les fentes</figcaption></figure><figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/finitions.mp4" poster="clips/finitions.jpg" muted loop playsinline preload="none" aria-label="Extrait : Fendre à la règle"></video></div><figcaption>Fendre à la règle</figcaption></figure>
     </div>
    </li>
-
-   <li class="step" id="e11">
+   <li class="step" id="e14">
     <div>
-     <div class="step-head"><span class="num">11</span><h3>Plier en deux et fermer</h3></div>
-     <p>Plie le porte-monnaie en deux le long de l'axe central, celui qui passe par l'encoche, et marque fermement ce pli à la règle. Glisse tes cartes et ta monnaie, puis referme avec la ficelle élastique.</p>
+     <div class="step-head"><span class="num">14</span><h3>Plier en deux et remplir</h3></div>
+     <p>Plie le porte-monnaie en deux le long de l'axe central, celui qui passe par l'encoche, et marque fermement le pli. Glisse tes cartes dans leurs fentes et ta monnaie dans la poche, puis referme avec la ficelle élastique.</p>
      <p class="tip">La bâche garde la mémoire des plis : plus tu l'utilises, plus il se ferme facilement.</p>
-     <div class="step-actions"><label class="done"><input type="checkbox">C'est fait</label><button class="jump" data-t="436">Voir dans la vidéo (7:16)</button></div>
+     <div class="step-actions"><label class="done"><input type="checkbox">C'est fait</label><button class="jump" data-t="559">Voir dans la vidéo (9:19)</button></div>
     </div>
     <div class="media">
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/pliage.mp4" poster="clips/pliage.jpg" muted loop playsinline preload="none" aria-label="Extrait : plier en deux"></video></div><figcaption>Plier en deux</figcaption></figure>
-     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/resultat.mp4" poster="clips/resultat.jpg" muted loop playsinline preload="none" aria-label="Extrait : le porte-monnaie terminé"></video></div><figcaption>Et voilà !</figcaption></figure>
+     <figure><div class="clip"><span class="tag">Extrait</span><video data-src="clips/plier-en-deux.mp4" poster="clips/plier-en-deux.jpg" muted loop playsinline preload="none" aria-label="Extrait : Plier en deux et fermer"></video></div><figcaption>Plier en deux et fermer</figcaption></figure><figure><img class="illu" src="img/porte-monnaie-cartes.jpg" alt="Porte-monnaie en bâche bleue ouvert, avec des cartes glissées." loading="lazy" width="1200" height="1008"><figcaption>Rempli et prêt à servir</figcaption></figure>
     </div>
    </li>
   </ol>
@@ -470,13 +470,13 @@ dialog button{position:fixed;top:14px;right:18px;background:var(--magenta);color
      <li><button data-t="65"><time>1:05</time>Découpe</button></li>
      <li><button data-t="100"><time>1:40</time>La poche à monnaie</button></li>
      <li><button data-t="124"><time>2:04</time>Le soufflet et l'ailette ①</button></li>
-     <li><button data-t="208"><time>3:28</time>La languette centrale, ailette ②</button></li>
-     <li><button data-t="266"><time>4:26</time>Le grand pli</button></li>
-     <li><button data-t="292"><time>4:52</time>Les ailettes latérales ③ et ④</button></li>
-     <li><button data-t="340"><time>5:40</time>Pli central</button></li>
+     <li><button data-t="196"><time>3:16</time>Rabattre le soufflet à l'intérieur</button></li>
+     <li><button data-t="208"><time>3:28</time>Couper et rabattre la fermeture de la poche</button></li>
+     <li><button data-t="292"><time>4:52</time>Les ailettes latérales ② et ③ (gros plan)</button></li>
      <li><button data-t="360"><time>6:00</time>Trous et ficelle élastique</button></li>
-     <li><button data-t="436"><time>7:16</time>Pliage complet, vu de dessus</button></li>
-     <li><button data-t="480"><time>8:00</time>Fentes pour cartes et finitions</button></li>
+     <li><button data-t="436"><time>7:16</time>Assemblage complet, vu de dessus</button></li>
+     <li><button data-t="480"><time>8:00</time>Fentes pour cartes</button></li>
+     <li><button data-t="545"><time>9:05</time>Pliage final</button></li>
     </ul>
     <p class="privacy">La vidéo est hébergée sur YouTube (mode sans cookies) et ne se charge que lorsque tu cliques. Les extraits de cette page, eux, sont hébergés ici.</p>
    </div>
